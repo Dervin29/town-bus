@@ -2,6 +2,8 @@
 
 A nostalgic 90s/2000s Tamil Nadu town-bus music experience. The site is a single page that fills the viewport with bus artwork and floats a working YouTube playlist player over it — nothing more.
 
+**Live:** https://town-bus-music.vercel.app/
+
 ## Features
 
 - Full-screen Tamil town-bus background artwork
@@ -93,7 +95,6 @@ town-bus/
 
 - Live visitor presence using a backend (e.g., Supabase Realtime)
 - Playlist metadata from the YouTube Data API (requires an API key) instead of oEmbed
-- Deploy to a static host for a public URL
 
 ## Author
 
