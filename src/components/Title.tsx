@@ -4,7 +4,7 @@ export default function Title() {
       <h1
         className="
           font-title
-          text-4xl
+          text-6xl
           font-black
           leading-[1.05]
           tracking-wide
@@ -21,8 +21,8 @@ export default function Title() {
       <p
         className="
           font-subtitle
-          mt-4
-          text-base
+          mt-2
+          text-lg
           font-medium
           text-amber-100/80
           [text-shadow:0_2px_8px_rgba(0,0,0,0.85)]

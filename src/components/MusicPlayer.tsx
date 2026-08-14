@@ -205,32 +205,47 @@ export default function MusicPlayer({ player }: { player: YouTubePlayerControlle
         </div>
       )}
 
-      <div className="pointer-events-auto flex w-[min(94vw,640px)] items-center gap-3 rounded-2xl border border-white/15 bg-black/45 px-3 py-2.5 shadow-[0_12px_44px_rgba(0,0,0,0.5)] backdrop-blur-md sm:gap-4 sm:rounded-3xl sm:px-4 sm:py-3">
-        <div className="h-14 w-14 shrink-0 overflow-hidden rounded-xl border border-white/10 bg-black/30 sm:h-16 sm:w-16">
-          {thumbnail ? (
-            <img
-              src={thumbnail}
-              alt=""
-              loading="lazy"
-              decoding="async"
-              className="h-full w-full object-cover"
-            />
-          ) : (
-            <div className="flex h-full w-full items-center justify-center text-lg text-white/40">
-              ♪
+      <div className="pointer-events-auto flex w-[min(94vw,640px)] flex-col gap-y-2.5 rounded-2xl border border-white/15 bg-black/45 px-3 py-2.5 shadow-[0_12px_44px_rgba(0,0,0,0.5)] backdrop-blur-md sm:flex-row sm:items-center sm:gap-x-4 sm:rounded-3xl sm:px-4 sm:py-3">
+        <div className="min-w-0 flex-1 sm:flex sm:flex-col sm:justify-center">
+          <div className="flex items-center gap-3">
+            <div className="h-14 w-14 shrink-0 overflow-hidden rounded-xl border border-white/10 bg-black/30 sm:h-16 sm:w-16">
+              {thumbnail ? (
+                <img
+                  src={thumbnail}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-cover"
+                />
+              ) : (
+                <div className="flex h-full w-full items-center justify-center text-lg text-white/40">
+                  ♪
+                </div>
+              )}
             </div>
-          )}
-        </div>
 
-        <div className="min-w-0 flex-1">
-          <div className="truncate text-sm font-medium text-white sm:text-[15px]">
-            {error ? 'வீடியோ கிடைக்கவில்லை' : video.title || 'டவுன் பஸ் ஜன்னல் ஓரம்'}
-          </div>
-          <div className="truncate text-xs text-white/60">
-            {error ? 'YouTube' : video.author || 'YouTube'}
+            <div className="min-w-0 flex-1">
+              <div className="truncate text-sm font-medium text-white sm:text-[15px]">
+                {error ? 'வீடியோ கிடைக்கவில்லை' : video.title || 'டவுன் பஸ் ஜன்னல் ஓரம்'}
+              </div>
+              <div className="truncate text-xs text-white/60">
+                {error ? 'YouTube' : video.author || 'YouTube'}
+              </div>
+            </div>
+
+            <button
+              type="button"
+              className={`${buttonClass} sm:hidden ${queueOpen ? 'bg-white/15 text-white' : ''}`}
+              onClick={toggleQueue}
+              disabled={!ready}
+              aria-label="பாடல் வரிசை"
+              aria-pressed={queueOpen}
+            >
+              <QueueIcon />
+            </button>
           </div>
 
-          <div className="mt-1.5 flex items-center gap-2">
+          <div className="mt-2.5 flex items-center gap-2 sm:mt-1.5">
             <span className="w-10 shrink-0 text-[11px] tabular-nums text-white/60">
               {formatTime(activeTime)}
             </span>
@@ -257,7 +272,7 @@ export default function MusicPlayer({ player }: { player: YouTubePlayerControlle
           </div>
         </div>
 
-        <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
+        <div className="flex shrink-0 items-center justify-center gap-1.5 sm:justify-end sm:gap-2">
           <button
             type="button"
             className={buttonClass}
@@ -287,7 +302,7 @@ export default function MusicPlayer({ player }: { player: YouTubePlayerControlle
           </button>
           <button
             type="button"
-            className={`${buttonClass} ${queueOpen ? 'bg-white/15 text-white' : ''}`}
+            className={`${buttonClass} hidden sm:flex ${queueOpen ? 'bg-white/15 text-white' : ''}`}
             onClick={toggleQueue}
             disabled={!ready}
             aria-label="பாடல் வரிசை"
