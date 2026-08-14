@@ -19,7 +19,7 @@ export default function Header() {
 
   return (
     <header className="flex items-start justify-between px-5 pt-6 sm:px-6">
-      <div className="text-sm tracking-wide text-white/85 animate-pulse" aria-live="off">
+      <div className="text-sm tracking-wide text-white/85" aria-live="off">
         {time}
       </div>
       <a

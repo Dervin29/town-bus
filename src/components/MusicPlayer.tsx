@@ -93,7 +93,7 @@ function QueueRow({ item, position, isCurrent, playing, onPlay, currentRowRef }:
           {isCurrent && playing ? <NowPlayingIcon /> : position}
         </span>
         <div className="h-10 w-14 shrink-0 overflow-hidden rounded-lg border border-white/10 bg-black/40">
-          <img src={thumbnail} alt="" loading="lazy" className="h-full w-full object-cover" />
+          <img src={thumbnail} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" />
         </div>
         <div className="min-w-0 flex-1">
           <div className={`truncate text-sm ${isCurrent ? 'text-white' : 'text-white/85'}`}>
@@ -208,7 +208,13 @@ export default function MusicPlayer({ player }: { player: YouTubePlayerControlle
       <div className="pointer-events-auto flex w-[min(94vw,640px)] items-center gap-3 rounded-2xl border border-white/15 bg-black/45 px-3 py-2.5 shadow-[0_12px_44px_rgba(0,0,0,0.5)] backdrop-blur-md sm:gap-4 sm:rounded-3xl sm:px-4 sm:py-3">
         <div className="h-14 w-14 shrink-0 overflow-hidden rounded-xl border border-white/10 bg-black/30 sm:h-16 sm:w-16">
           {thumbnail ? (
-            <img src={thumbnail} alt="" className="h-full w-full object-cover" />
+            <img
+              src={thumbnail}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              className="h-full w-full object-cover"
+            />
           ) : (
             <div className="flex h-full w-full items-center justify-center text-lg text-white/40">
               ♪
