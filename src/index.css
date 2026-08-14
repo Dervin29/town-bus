@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@theme {
+  --font-title: "Anek Tamil", "Catamaran", "Noto Sans Tamil", sans-serif;
+  --font-subtitle: "Mukta Malar", "Noto Sans Tamil", sans-serif;
+  --font-sans-tamil: "Noto Sans Tamil", "Segoe UI", sans-serif;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans-tamil);
+    background: #111;
+    color: #fff;
+  }
+}
+
+.app-shell {
+  height: 100vh;
+  height: 100dvh;
+}
+
+.player-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 14px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.player-range:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.player-range::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.9) var(--progress, 0%),
+    rgba(255, 255, 255, 0.25) var(--progress, 0%),
+    rgba(255, 255, 255, 0.25) 100%
+  );
+}
+
+.player-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -4px;
+  height: 12px;
+  width: 12px;
+  border-radius: 999px;
+  background: #fff;
+  border: none;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.player-range::-moz-range-track {
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.player-range::-moz-range-progress {
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.player-range::-moz-range-thumb {
+  height: 12px;
+  width: 12px;
+  border: none;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.eq-bar {
+  transform-origin: bottom;
+  animation: eq-bounce 1s ease-in-out infinite;
+}
+
+@keyframes eq-bounce {
+  0%,
+  100% {
+    transform: scaleY(0.35);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.queue-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+}
+
+.queue-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.queue-scroll::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.queue-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
